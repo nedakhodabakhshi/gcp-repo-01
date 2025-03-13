@@ -8,16 +8,16 @@ steps:
   - name: gcr.io/cloud-builders/docker
     args: ['push', 'gcr.io/${_PROJECT_ID}/${_CINAME}:${_VERSION}']
 
-  # Kubernetes Deployment
-  - name: gcr.io/cloud-builders/kubectl
-    args:
-      - 'set'
-      - 'image'
-      - 'deployment/cicd-app-1'
-      - 'myimgweb-sha256-1-sha2562=gcr.io/${_PROJECT_ID}/${_CINAME}:${_VERSION}'
-    env:
-      - 'CLOUDSDK_COMPUTE_ZONE=us-central1-b'
-      - 'CLOUDSDK_CONTAINER_CLUSTER=cicd-cluster1'
+  # # Kubernetes Deployment
+  # - name: gcr.io/cloud-builders/kubectl
+  #   args:
+  #     - 'set'
+  #     - 'image'
+  #     - 'deployment/cicd-app-1'
+  #     - 'myimgweb-sha256-1-sha2562=gcr.io/${_PROJECT_ID}/${_CINAME}:${_VERSION}'
+  #   env:
+  #     - 'CLOUDSDK_COMPUTE_ZONE=us-central1-b'
+  #     - 'CLOUDSDK_CONTAINER_CLUSTER=cicd-cluster1'
 
 substitutions:
   _PROJECT_ID: my-codebuild
