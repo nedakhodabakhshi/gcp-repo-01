@@ -14,14 +14,14 @@ steps:
       - 'set'
       - 'image'
       - 'deployment/cicd-app-1'
-      - 'myimgweb-sha256-1=gcr.io/${_PROJECT_ID}/${_CINAME}:${_VERSION}'
+      - 'myimgweb-sha256-1-sha2562=gcr.io/${_PROJECT_ID}/${_CINAME}:${_VERSION}'
     env:
       - 'CLOUDSDK_COMPUTE_ZONE=us-central1-b'
       - 'CLOUDSDK_CONTAINER_CLUSTER=cicd-cluster1'
 
 substitutions:
   _PROJECT_ID: my-codebuild
-  _CINAME: myimgweb-sha256-1
+  _CINAME: myimgweb-sha256-1-sha2562
   _VERSION: v4.0
 
 options:
