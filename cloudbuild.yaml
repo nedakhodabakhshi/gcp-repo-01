@@ -1,6 +1,6 @@
 steps:
   - name: gcr.io/cloud-builders/git
-    args: ['clone', 'https://github.com/fariborzfallahzadeh/gcp-repo-01.git']
+    args: ['clone', 'https://github.com/nedakhodabakhshi/gcp-repo-01.git']
 
   - name: gcr.io/cloud-builders/docker
     args: ['build', '-t', 'gcr.io/${_PROJECT_ID}/${_CINAME}:${_VERSION}', '.']
@@ -8,19 +8,19 @@ steps:
   - name: gcr.io/cloud-builders/docker
     args: ['push', 'gcr.io/${_PROJECT_ID}/${_CINAME}:${_VERSION}']
 
-  # تنظیم ایمیج جدید در Kubernetes Deployment
-  - name: gcr.io/cloud-builders/kubectl
-    args:
-      - 'set'
-      - 'image'
-      - 'deployment/cicd-app-1'
-      - 'myimgweb-sha256-1=gcr.io/${_PROJECT_ID}/${_CINAME}:${_VERSION}'
-    env:
-      - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
-      - 'CLOUDSDK_CONTAINER_CLUSTER=cicd-cluster'
+  # # تنظیم ایمیج جدید در Kubernetes Deployment
+  # - name: gcr.io/cloud-builders/kubectl
+  #   args:
+  #     - 'set'
+  #     - 'image'
+  #     - 'deployment/cicd-app-1'
+  #     - 'myimgweb-sha256-1=gcr.io/${_PROJECT_ID}/${_CINAME}:${_VERSION}'
+  #   env:
+  #     - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+  #     - 'CLOUDSDK_CONTAINER_CLUSTER=cicd-cluster'
 
 substitutions:
-  _PROJECT_ID: ascendant-woods-452816-t8
+  _PROJECT_ID: my-codebuild
   _CINAME: myimgweb-sha256-1
   _VERSION: v4.0
 
