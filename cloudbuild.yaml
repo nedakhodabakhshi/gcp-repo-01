@@ -20,7 +20,7 @@ steps:
       - 'CLOUDSDK_CONTAINER_CLUSTER=cicd-cluster'
 
 substitutions:
-  _PROJECT_ID: ascendant-woods-452816-t8
+  _PROJECT_ID: my-codebuild
   _CINAME: myimgweb-sha256-1
   _VERSION: v3.0
 
