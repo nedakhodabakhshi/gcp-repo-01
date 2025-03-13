@@ -1,6 +1,6 @@
 steps:
   - name: gcr.io/cloud-builders/git
-    args: ['clone', 'https://github.com/fariborzfallahzadeh/gcp-repo-01.git']
+    args: ['clone', 'https://github.com/nedakhodabakhshi/gcp-repo-01.git']
 
   - name: gcr.io/cloud-builders/docker
     args: ['build', '-t', 'gcr.io/${_PROJECT_ID}/${_CINAME}:${_VERSION}', '.']
