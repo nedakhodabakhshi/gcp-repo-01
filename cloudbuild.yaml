@@ -16,8 +16,8 @@ steps:
       - 'deployment/cicd-app-1'
       - 'myimgweb-sha256-1=gcr.io/${_PROJECT_ID}/${_CINAME}:${_VERSION}'
     env:
-      - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
-      - 'CLOUDSDK_CONTAINER_CLUSTER=cicd-cluster'
+      - 'CLOUDSDK_COMPUTE_ZONE=us-central1-b'
+      - 'CLOUDSDK_CONTAINER_CLUSTER=cicd-cluster1'
 
 substitutions:
   _PROJECT_ID: my-codebuild
